@@ -1,11 +1,10 @@
-terraform{
+terraform {
   backend "s3" {
-    bucket         = "nsh-state-new"
-    key            = "dev/terraform/key/terraform.tfstate"
-    region         = "us-west-2"
+    bucket         = "nsh-terraform-demo-bucket"  
+    key            = "eks-monitoring/staging/terraform.tfstate"
+    region         = "us-east-1"            
     encrypt        = true
   }
 }
-
 
 
