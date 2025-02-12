@@ -10,10 +10,10 @@ module "iam" {
   source = "../../Modules/IAM"
 }
 
-module "ecr" {
-  source    = "../../Modules/ECR"
-  repo_name = var.repo_name
-}
+# module "ecr" {
+# source    = "../../Modules/ECR"
+#  repo_name = var.repo_name
+# }
 
 module "ecs" {
   source          = "../../Modules/ECS"
