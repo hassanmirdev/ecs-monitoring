@@ -1,4 +1,4 @@
-name: Destroy AWS Infrastructure with Terraform
+name: Destroy ECS Infra With Terraform
 
 on:
   workflow_dispatch: # Manually trigger the workflow
