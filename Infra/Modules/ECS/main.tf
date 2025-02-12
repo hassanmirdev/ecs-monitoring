@@ -38,7 +38,7 @@ resource "aws_ecs_task_definition" "appointment_service" {
         logDriver = "awslogs"
         options = {
           awslogs-group         = aws_cloudwatch_log_group.ecs_logs.name
-          awslogs-region        = "us-west-2"
+          awslogs-region        = "us-east-1"
           awslogs-stream-prefix = "appointment-service"
         }
       }
@@ -56,7 +56,7 @@ resource "aws_ecs_task_definition" "appointment_service" {
         },
         {
           name  = "AWS_XRAY_DAEMON_ADDRESS"
-          value = "xray.us-west-2.amazonaws.com:2000"
+          value = "xray.us-east-1.amazonaws.com:2000"
         },
         {
           name  = "AWS_XRAY_DAEMON_DISABLE_METADATA"
@@ -67,7 +67,7 @@ resource "aws_ecs_task_definition" "appointment_service" {
         logDriver = "awslogs"
         options = {
           awslogs-group         = aws_cloudwatch_log_group.ecs_logs.name
-          awslogs-region        = "us-west-2"
+          awslogs-region        = "us-east-1"
           awslogs-stream-prefix = "xray"
         }
       }
@@ -100,14 +100,14 @@ resource "aws_ecs_task_definition" "prometheus" {
       environment = [
         {
           name  = "AWS_REGION"
-          value = "us-west-2"
+          value = "us-east-1"
         }
       ]
       logConfiguration = {
         logDriver = "awslogs"
         options = {
           awslogs-group         = aws_cloudwatch_log_group.ecs_logs.name
-          awslogs-region        = "us-west-2"
+          awslogs-region        = "us-east-1"
           awslogs-stream-prefix = "prometheus"
         }
       }
@@ -145,7 +145,7 @@ resource "aws_ecs_task_definition" "grafana" {
         logDriver = "awslogs"
         options = {
           awslogs-group         = aws_cloudwatch_log_group.ecs_logs.name
-          awslogs-region        = "us-west-2"
+          awslogs-region        = "us-east-1"
           awslogs-stream-prefix = "grafana"
         }
       }
@@ -182,7 +182,7 @@ resource "aws_ecs_task_definition" "patient_service" {
         logDriver = "awslogs"
         options = {
           awslogs-group         = aws_cloudwatch_log_group.ecs_logs.name
-          awslogs-region        = "us-west-2"
+          awslogs-region        = "us-east-1"
           awslogs-stream-prefix = "patient-service"
         }
       }
@@ -200,7 +200,7 @@ resource "aws_ecs_task_definition" "patient_service" {
   },
   {
     name  = "AWS_XRAY_DAEMON_ADDRESS"
-    value = "xray.us-west-2.amazonaws.com:2000"
+    value = "xray.us-east-1.amazonaws.com:2000"
   },
   {
     name  = "AWS_XRAY_DAEMON_DISABLE_METADATA"
@@ -212,7 +212,7 @@ resource "aws_ecs_task_definition" "patient_service" {
         logDriver = "awslogs"
         options = {
           awslogs-group         = aws_cloudwatch_log_group.ecs_logs.name
-          awslogs-region        = "us-west-2"
+          awslogs-region        = "us-east-1"
           awslogs-stream-prefix = "xray"
         }
       }
