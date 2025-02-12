@@ -4,7 +4,7 @@ on:
   workflow_dispatch: # Manually trigger the workflow
    inputs:
     environment:
-        description: "Environment to deploy (e.g., dev, staging, prod)"
+        description: " Select Environment to deploy (e.g., dev, staging, prod)"
         required: true
         default: "dev"
         type: choice
@@ -17,6 +17,11 @@ jobs:
   destroy:
     name: Destroy Terraform Resources
     runs-on: ubuntu-latest
+
+    # Define environment variables once for the whole job
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     steps:
       - name: Checkout Repository
@@ -31,14 +36,8 @@ jobs:
         run: | 
           cd Infra/Environments/${{ github.event.inputs.environment || 'dev' }}
           terraform init
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Destroy Resources
         run: |
-         cd Infra/Environments/${{ github.event.inputs.environment || 'dev' }}
-         terraform destroy -auto-approve -var-file="${{ github.event.inputs.environment || 'dev' }}-var.tfvars"
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          cd Infra/Environments/${{ github.event.inputs.environment || 'dev' }}
+          terraform destroy -auto-approve -var-file="${{ github.event.inputs.environment || 'dev' }}-var.tfvars"
