@@ -19,14 +19,14 @@ variable "private_subnets" {
 variable "availability_zones" {
   description = "AWS availability zones"
   type        = list(string)
-  default     = ["us-west-2a", "us-west-2b"]
+  default     = ["us-east-1a", "us-east-1b"]
 }
 
-variable "repo_name" {
-  description = "Name of the ECR repository"
-  type        = string
-  default     = "my-app-repo"
-}
+# variable "repo_name" {
+# description = "Name of the ECR repository"
+#  type        = string
+#  default     = "my-app-repo"
+# }
 
 variable "cluster_name" {
   description = "ECS Cluster Name"
@@ -41,9 +41,9 @@ variable "task_name" {
 }
 
 variable "image_url" {
-  description = "Container Image URL"
+  description = "Appointment Container Image URL"
   type        = string
-  default     = "123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app-repo:latest"
+  default     = "677276078111.dkr.ecr.us-east-1.amazonaws.com/my-app-repo:appointment-service-latest"
 }
 
 variable "task_memory" {
@@ -92,7 +92,7 @@ variable "log_group_name" {
 variable "image_url_patient" {
   description = "Container Image URL"
   type        = string
-  default     = "123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app-repo:latest"
+  default     = "677276078111.dkr.ecr.us-east-1.amazonaws.com/my-app-repo:patient-service-latest"
 }
 
 variable "domain_name" {
