@@ -1,4 +1,4 @@
-Use Case Overview: Deploying Node.js Microservices on AWS ECS Fargate with Terraform and Monitoring with Prometheus & Grafana 
+**Use Case Overview: Deploying Node.js Microservices on AWS ECS Fargate with Terraform and Monitoring with Prometheus & Grafana **
 
 This use case focuses on deploying two Node.js-based microservices—Patient Service and Appointment Service—on AWS ECS Fargate. The entire infrastructure and application setup are automated using Terraform and GitHub Actions for Continuous Integration/Continuous Deployment (CI/CD). The application services are containerized using Docker and are hosted within a Virtual Private Cloud (VPC) consisting of public and private subnets for secure communication and scaling. 
 
