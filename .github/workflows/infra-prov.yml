@@ -103,11 +103,11 @@ jobs:
           cd Infra/Environments/${{ github.event.inputs.environment || 'dev' }}
           terraform validate
 
-      # Step: Terraform Workspace Select
-      - name: Terraform Workspace Select
-        run: |
-          cd Infra/Environments/${{ github.event.inputs.environment || 'dev' }}
-          terraform workspace select ${{ github.event.inputs.environment || 'dev' }} || terraform workspace new ${{ github.event.inputs.environment || 'dev' }}
+      # # Step: Terraform Workspace Select
+      # - name: Terraform Workspace Select
+      #   run: |
+      #     cd Infra/Environments/${{ github.event.inputs.environment || 'dev' }}
+      #     terraform workspace select ${{ github.event.inputs.environment || 'dev' }} || terraform workspace new ${{ github.event.inputs.environment || 'dev' }}
 
       # Step: Terraform Plan
       - name: Terraform Plan
