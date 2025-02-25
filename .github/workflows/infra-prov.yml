@@ -1,4 +1,4 @@
-name: Prov ECS Infra With Terraform.
+name: Prov ECS Infra With Terraform
 
 on:
   workflow_dispatch:
